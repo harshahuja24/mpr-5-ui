@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 430"> <!-- Adjusted height -->
+        <path fill="#F8D57E" fill-opacity="0.5" d="M0,110L60,160C120,210,240,300,360,310C480,320,600,240,720,250C840,260,960,340,1080,360C1200,380,1320,300,1380,250L1440,200L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path>
+      </svg>
+
+      
+      
+    <div class="generate-text">
+        <h1><b>Generate</b></h1>
+        <h4>What would you like to create today?</h4>
+    </div>
+    <div class="file-input-container">
+        <input  class="file-input-field" placeholder="Enter Your Documents">
+        <label for="file-upload" class="file-input-button tooltip">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path>
+            </svg>
+            <span class="tooltiptext">Click to attach PDF files</span>
+        </label>
+        <input id="file-upload" type="file" accept=".pdf" style="display: none;">
+    </div>
+    <div id="toast" class="toast">PDF file attached successfully!</div>
+    <div class="dot dot1"></div>
+<div class="dot dot2"></div>
+<div class="dot dot3"></div>
+<div class="dot dot4"></div>
+<div class="dot dot5"></div>
+<div class="dot dot6"></div>
+
+    <script>
+        const fileInput = document.getElementById('file-upload');
+        const textInput = document.querySelector('.file-input-field');
+        const toast = document.getElementById('toast');
+
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file && file.type === 'application/pdf') {
+                textInput.value = file.name;
+                showToast();
+            }
+        });
+
+        function showToast() {
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // textInput.addEventListener('click', function() {
+        //     fileInput.click();
+        // });
+    </script>
+</body>
+</html>
